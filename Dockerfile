@@ -1,7 +1,7 @@
 FROM php:8.3-apache
 
 RUN apt-get update && apt-get install -y \
-    libpng-dev libjpeg-dev libfreetype6-dev libzip-dev git curl \
+    libpng-dev libjpeg-dev libfreetype6-dev libzip-dev libonig-dev git curl \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql mbstring openssl tokenizer xml ctype bcmath fileinfo curl zip \
     && rm -rf /var/lib/apt/lists/*
